@@ -32,7 +32,7 @@ class DatabaseManager extends PDO
         $this->connect();
     }
     
-    final private function connect()
+    private function connect()
     {
         $pdo_dsn = "mysql:host={$this->db_host};dbname={$this->db_name};port={$this->db_port};charset={$this->db_charset};";
     
@@ -59,7 +59,7 @@ class DatabaseManager extends PDO
      * @param null $data
      * @return bool|false|PDOStatement
      */
-    public function query($stmt, $data = null)
+    public function execute($stmt, $data = null)
     {
         $query = $this->pdo->prepare($stmt);
         $exec = $query->execute($data);
@@ -184,17 +184,17 @@ class DatabaseManager extends PDO
         return;
     }
     
-    public function beginTransaction()
+    public function iniciarTransacao()
     {
         $this->pdo->beginTransaction();
     }
     
-    public function commit()
+    public function commitar()
     {
         $this->pdo->commit();
     }
     
-    public function rollBack()
+    public function cancelarTransacao()
     {
         $this->pdo->rollBack();
     }
