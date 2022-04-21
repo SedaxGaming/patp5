@@ -18,6 +18,7 @@ class HomeController extends MainController
     public function index()
     {
         // verifyLogin();
+        $este = 'oi';
         
         $this->view('home/index');
     }
