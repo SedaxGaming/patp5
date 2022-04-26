@@ -185,6 +185,19 @@ class DatabaseManager extends PDO
         
         return;
     }
+
+    public function select($data, $table, $where_field_value){
+        if (empty($data) || empty($table) || empty($where_field_value)) {
+            return;
+        }
+        $data_array = array($data);
+        $where_array = array($where_field_value);
+
+        $stmt = "SELECT" . $data_array . "FROM `$table`" . "WHERE `$where_array`";
+
+        return;
+
+    }
     
     public function iniciarTransacao()
     {

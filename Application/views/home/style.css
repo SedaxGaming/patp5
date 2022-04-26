@@ -35,7 +35,7 @@ body {/*--
     font-size: 51px;
     text-transform: uppercase;
     letter-spacing: 10px;
-    color: #fff;
+    color: rgb(0, 0, 0);
     font-weight: 600;
     margin: 70px 0px;
 }
@@ -98,7 +98,7 @@ input[type="password"] {
 	-ms-transition:0.5s all;
 }
 .w3layouts-main a:hover{
-	color:rgba(208, 95, 216, 0.9);
+	color:rgba(39, 228, 203, 0.9);
 	transition:0.5s all;
 	-webkit-transition:0.5s all;
 	-o-transition:0.5s all;
@@ -124,7 +124,7 @@ input[type="submit"] {
     -ms-transition: 0.5s all;
 }
 input[type="submit"]:hover {
-	background:rgba(213, 38, 133, 0.64);
+	background:rgba(13, 236, 61, 0.64);
 	transition:0.5s all;
 	-webkit-transition:0.5s all;
 	-o-transition:0.5s all;
@@ -154,7 +154,7 @@ input[type="submit"]:hover {
     letter-spacing: 2px;
 }
 .footer-w3l a {
-    color:rgba(208, 95, 216, 0.9);
+    color:rgba(27, 210, 235, 0.9);
 }
 .footer-w3l a:hover {
     color:rgba(19, 129, 206, 0.82);;
