@@ -50,6 +50,7 @@ class LoginModel
             $conn::commitar();
         } catch (\Throwable $th) {
             //throw $th;
+            echo("Algo de errado não deu certo! Tente novamente mais tarde!");
             $conn::cancelarTransacao();
         }
         // Redirecionar o usuário para a página de boas-vindas

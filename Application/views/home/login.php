@@ -17,7 +17,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!--main-->
 <div class="main-w3l">
 <div class="w3layouts-main">
-		<form action="../../controllers/LoginController" method="post">
+		<form action="/controllers/LoginController" method="post">
 			<input value="E-MAIL" name="email" type="email" required="" 
       onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'E-Mail';}"/>
 			<input value="PASSWORD" name="password" type="password" 
