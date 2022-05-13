@@ -35,11 +35,13 @@ class DatabaseManager extends PDO
     private function connect()
     {
         $pdo_dsn = "mysql:host={$this->db_host};dbname={$this->db_name};port={$this->db_port};charset={$this->db_charset};";
-    
+        
+        
         try {
             $this->pdo = new PDO($pdo_dsn, $this->db_user, $this->db_password);
             $this->pdo->setAttribute(PDO::ATTR_TIMEOUT, 10);
             
+           
             if ($this->debug === true) {
                $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
             }
@@ -182,6 +184,19 @@ class DatabaseManager extends PDO
         }
         
         return;
+    }
+
+    public function select($data, $table, $where_field_value){
+        if (empty($data) || empty($table) || empty($where_field_value)) {
+            return;
+        }
+        $data_array = array($data);
+        $where_array = array($where_field_value);
+
+        $stmt = "SELECT" . $data_array . "FROM `$table`" . "WHERE `$where_array`";
+
+        return;
+
     }
     
     public function iniciarTransacao()
