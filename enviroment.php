@@ -2,8 +2,8 @@
 
 // Configurações do banco de dados
 define('DB_NAME', 'patp5');
-define('DB_USER', 'logindobd');
-define('DB_PASSWORD', 'senhadobd');
+define('DB_USER', 'root');
+define('DB_PASSWORD', 'GS0101');
 define('DB_HOST', 'localhost');
 define('DB_PORT', 3306);
 

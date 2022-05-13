@@ -41,7 +41,7 @@ class DatabaseManager extends PDO
             $this->pdo = new PDO($pdo_dsn, $this->db_user, $this->db_password);
             $this->pdo->setAttribute(PDO::ATTR_TIMEOUT, 10);
             
-            dd($this->pdo);
+           
             if ($this->debug === true) {
                $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
             }

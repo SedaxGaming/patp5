@@ -27,7 +27,7 @@
 				<h1><span>4</span><span>0</span><span>4</span></h1>
 			</div>
 			<h2>Não encontramos o que você procurou...</h2>
-			<H2>Que tal voltar ao <a href="/index">ínicio</a>?</H2>
+			<H2>Que tal voltar ao <a href="/">ínicio</a>?</H2>
 			<h2>Ou simplesmente <a href="javascript:void(0)" onClick="history.go(-1); return false;">volte</a>
 		para a pagina anterior...</h2>
 		</div>

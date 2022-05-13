@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Home view</title>
+        <title>PHP Agenda</title>
     </head>
     <body>
         <p>Primeira página</p>
