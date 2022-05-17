@@ -38,7 +38,6 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 </div>
 <!--//main-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://unpkg.com/imask"></script>
 <script>
 	//verifica cadastro
 	function verifyCad() {
@@ -67,14 +66,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
    	if(cpf.value) cpf.value = cpf.value.match(/.{1,3}/g).join(".").replace(/\.(?=[^.]*$)/,"-");});
 
 	//mascara cnpj
-	var numberMask = IMask(
-  document.getElementById('cnpj'),
-  {
-    mask: Number,
-    min: 0,
-    max: 1111111111111,
-    thousandsSeparator: ' '
-  });
+	
 </script>
 </body>
 </html>
