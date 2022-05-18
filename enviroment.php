@@ -4,7 +4,7 @@
 define('DB_NAME', 'patp5');
 define('DB_USER', 'root');
 define('DB_PASSWORD', 'GS0101');
-define('DB_HOST', 'localhost');
+define('DB_HOST', '127.0.0.1');
 define('DB_PORT', 3306);
 
 // Caminho para a raiz

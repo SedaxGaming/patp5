@@ -30,13 +30,13 @@ class CadastroController extends MainController
        
        // Processando dados do formulário quando o formulário é enviado
        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-           $dados = [
-               $_POST["email"],
-                $_POST["senha"],
-                $_POST["nome"],
-                $_POST["cpf"],
-                $_POST["cnpj"],
-                $_POST["endereco"]
+            $dados = [
+                "email" => $_POST["email"],
+                "senha" => md5($_POST["senha"]),
+                "nome" => $_POST["nome"],
+                "cpf" => $_POST["cpf"],
+                "cnpj" => $_POST["cnpj"],
+                "endereco" => $_POST["endereco"]
             ];
            $data = $this->model->cadastro($dados);
            echo json_encode($data);

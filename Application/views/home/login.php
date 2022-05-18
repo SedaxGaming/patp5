@@ -43,6 +43,8 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			let result = JSON.parse(data);
 			if (result.status == "error"){
 				$("#errorlogin").html("<h4>" + result.message + "</h4>")
+			} else if (result.status == "ok"){
+				window.location.href = "/dashboard"
 			}
 		 }
 		} )

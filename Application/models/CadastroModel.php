@@ -18,8 +18,8 @@ class CadastroModel
 
     public function cadastro($dados)
     {
-
-        if (empty($dados[0]) || (empty($dados[1]))){
+        
+        if (empty($dados['email']) || (empty($dados['senha']))){
             $data = [
                 "status" => "error",
                 'message' => 'Por favor, verifique seus dados!'
@@ -27,11 +27,14 @@ class CadastroModel
             ];
             return $data;
         }else{
-            $select = $this->conn->execute("SELECT * FROM usuarios WHERE email = ?",$dados[0]);
-        
-            if(empty($select) || (is_null($select))){
 
-                $this->conn->insert("usuarios",[$dados]);
+            $select = $this->conn->execute
+            ("SELECT email FROM usuarios WHERE email = ?",[$dados['email']])->fetch(\PDO::FETCH_ASSOC);
+            
+
+            if(empty($select) || (is_null($select)) || ($select == false)){
+
+                $insert = $this->conn->insert("usuarios",$dados);
 
             }else{
                 $data = [
@@ -39,8 +42,11 @@ class CadastroModel
                     'message' => 'Este email já esta cadastrado, pro favor use outro.'
 
                 ];
+
+                
                 return $data;
             }
+            
         }       
             
     }
