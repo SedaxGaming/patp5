@@ -18,7 +18,7 @@ class CadastroModel
 
     public function cadastro($dados)
     {
-        
+
         if (empty($dados['email']) || (empty($dados['senha']))){
             $data = [
                 "status" => "error",
@@ -26,27 +26,46 @@ class CadastroModel
 
             ];
             return $data;
+
         }else{
 
-            $select = $this->conn->execute
-            ("SELECT email FROM usuarios WHERE email = ?",[$dados['email']])->fetch(\PDO::FETCH_ASSOC);
-            
+            $select = $this->conn->
+            execute("SELECT email FROM usuarios WHERE email = ?", $dados['email'])->fetch(\PDO::FETCH_ASSOC);
 
-            if(empty($select) || (is_null($select)) || ($select == false)){
+            if($select !== false){
 
-                $insert = $this->conn->insert("usuarios",$dados);
-
-            }else{
                 $data = [
                     "status" => "error",
                     'message' => 'Este email já esta cadastrado, pro favor use outro.'
 
                 ];
 
+                return $data;
+                
+            }else{
+                $this->conn->iniciarTransacao();
+                try {
+                    $this->conn->insert("usuarios",[$dados]);
+                
+                    $data = [
+                        "status" => "ok",
+                    ];
+
+                    $this->conn->commitar();
+                } catch (\Throwable $th) {
+                    $this->conn->cancelarTransacao();
+
+                    $data = [
+                        "status" => "error",
+                        'message' => 'Aconteceu um erro inesperado, tente novamente mais tarde.'
+    
+                    ];
+                }
                 
                 return $data;
+                
             }
-            
+
         }       
             
     }

@@ -64,7 +64,7 @@ class DatabaseManager extends PDO
     public function execute($stmt, $data = null)
     {
         $query = $this->pdo->prepare($stmt);
-        $exec = $query->execute($data);
+        $exec = $query->execute([$data]);
         
         if ($exec) {
             return $query;
